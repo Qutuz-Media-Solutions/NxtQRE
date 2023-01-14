@@ -9,6 +9,7 @@
   },
   "scripts": {
     "prepare": "bin/npm-scripts/prepare",
+    "cache:clean": "yarn cache clean -f",
     "dev": "bin/npm-scripts/dev",
     "dev-no-inspect": "next dev",
     "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
@@ -20,8 +21,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
     "next": "12.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -31,6 +30,8 @@
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
     "@storybook/addon-essentials": "^7.0.0-beta.27",
+    "@storybook/addon-interactions": "^7.0.0-beta.27",
+    "@storybook/addon-links": "^7.0.0-beta.27",
     "@storybook/blocks": "^7.0.0-beta.27",
     "@storybook/nextjs": "^7.0.0-beta.27",
     "@storybook/react": "^7.0.0-beta.27",
