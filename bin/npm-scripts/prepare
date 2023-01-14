@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+# only run husky install for development env in Docker and locally
+if [ "$APP_ENVIRONMENT" == "development" ] || [ "$APP_ENVIRONMENT" == "" ]; then
+    printf "\033[1;37m\nSetting up Husky... 🐕 🐕 \033[m \n\n"
+    npx husky install
+fi

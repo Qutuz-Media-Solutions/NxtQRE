@@ -8,9 +8,10 @@
     "npm": "Please use yarn"
   },
   "scripts": {
-    "prepare": "husky install",
-    "dev": "next dev",
-    "inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "prepare": "bin/npm-scripts/prepare",
+    "dev": "bin/npm-scripts/dev",
+    "dev-no-inspect": "next dev",
+    "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

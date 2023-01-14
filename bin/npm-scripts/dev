@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+
+show_menu(){
+    normal=`echo "\033[m"`
+    menu=`echo "\033[1;37m"` #Green
+    number=`echo "\033[0;32m"` #White
+    bgred=`echo "\033[1;37m"`
+    fgred=`echo "\033[31m"`
+    printf "\n${menu}** 👨‍💻 $USER, how do you want to run dev:\n**${normal}\n"
+    printf "${menu}**${number} 1) With Inspect ${normal}\n"
+    printf "${menu}**${number} 2) Without Inspect ${normal}\n"
+    printf "${menu}**\n*********************************************${normal}\n"
+    printf "Please enter a menu option and enter or ${fgred}x to exit. ${normal}"
+    read opt
+}
+
+
+option_picked(){
+    msgcolor=`echo "\033[01;31m"` # bold red
+    normal=`echo "\033[00;00m"` # normal white
+    message=${@:-"${normal}Error: No message passed"}
+    printf "${msgcolor}${message}${normal}\n"
+}
+
+show_menu
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1)  printf "\n${number} 🍜 Running ${bgred}\`cross-env NODE_OPTIONS='--inspect' next dev\`${normal}\n\n";
+            cross-env NODE_OPTIONS='--inspect' next dev;
+            exit 0;
+        ;;
+        2)  printf "\n${number} 🍜 Running ${bgred}\`next-dev\`${normal}\n\n";
+            next dev;
+            exit 0;
+        ;;
+        x) exit 0;
+        ;;
+        \n) exit 0;
+        ;;
+        *)
+            option_picked "Pick an option from the menu";
+            show_menu;
+        ;;
+      esac
+    fi
+done
+
+
