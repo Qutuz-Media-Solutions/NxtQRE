@@ -15,6 +15,13 @@
         "args": "after-used",
         "argsIgnorePattern": "^_"
       }
+    ],
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
     ]
   },
   "overrides": [
