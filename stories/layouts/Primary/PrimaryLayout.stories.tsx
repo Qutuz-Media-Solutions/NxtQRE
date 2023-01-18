@@ -10,4 +10,8 @@ const meta: Meta<typeof PrimaryLayout> = {
 export default meta;
 
 type Story = StoryObj<typeof PrimaryLayout>;
-export const PrimaryDefault: Story = {};
+export const PrimaryDefault: Story = {
+  args: {
+    children: null,
+  },
+};
