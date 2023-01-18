@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from './PrimaryLayout.module.sass';
+import styles from './styles.module.sass';
 
 export interface IPrimaryLayout {
   children: React.ReactNode;

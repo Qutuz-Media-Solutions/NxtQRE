@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from './index.module.sass';
+import styles from './styles.module.sass';
 import { ICatCard } from './types';
 
 const CatCard: React.FC<ICatCard> = ({ title, tag, body, author, time }) => {

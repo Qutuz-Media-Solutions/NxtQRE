@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './SidebarLayout.module.sass';
+import styles from './styles.module.sass';
 
 export interface ISidebarLayout {
   children?: React.ReactNode;
