@@ -1,8 +1,8 @@
-import CatCard from '@/components/cards/cat/CatCard';
+import CatCard from '@/components/cards/cat';
 import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
 import SidebarLayout from '@/layouts/sidebar/SidebarLayout';
 import Image from 'next/image';
-import { mockCatCardProps } from 'stories/components/cards/cat/CatCard.mock';
+import { mockCatCardProps } from 'stories/components/cards/cat/index.mock';
 import styles from '../styles/Home.module.css';
 import type { NextPageWithLayout } from './types/page';
 

@@ -1,6 +1,6 @@
-import BaseTemplate from '@/components/templates/BaseTemplate';
+import BaseTemplate from '@/components/templates/base-template';
 import type { Meta, StoryObj } from '@storybook/react';
-import { mockBaseTemplateProps } from './BaseTemplate.mocks';
+import { mockBaseTemplateProps } from './index.mocks';
 
 const meta: Meta<typeof BaseTemplate> = {
   title: 'templates/BaseTemplate',

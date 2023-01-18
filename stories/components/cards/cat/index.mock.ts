@@ -1,4 +1,4 @@
-import { ICatCard } from '@/components/cards/cat/CatCard';
+import { ICatCard } from '@/components/cards/cat';
 
 const primary: ICatCard = {
   tag: 'Felines',
