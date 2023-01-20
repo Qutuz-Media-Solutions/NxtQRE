@@ -10,7 +10,11 @@
   },
   "[scss]": {
     "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": ["document"],
+    "gitlens.codeLens.scopes": [
+      "document"
+    ],
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

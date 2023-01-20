@@ -1,12 +1,9 @@
 import CatCard from '@/components/cards/cat';
-import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
-import SidebarLayout from '@/layouts/sidebar/SidebarLayout';
 import Image from 'next/image';
 import { mockCatCardProps } from 'stories/components/cards/cat/index.mock';
-import styles from '../styles/Home.module.css';
-import type { NextPageWithLayout } from './types/page';
+import styles from 'styles/Home.module.css';
 
-const Home: NextPageWithLayout = () => {
+const HomePage: React.FC = () => {
   return (
     <section className={styles.main}>
       <h1 className={styles.title}>
@@ -35,13 +32,4 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-export default Home;
-
-Home.getLayout = (page) => {
-  return (
-    <PrimaryLayout>
-      <SidebarLayout />
-      {page}
-    </PrimaryLayout>
-  );
-};
+export default HomePage;
