@@ -11,7 +11,11 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
       <Head>
         <title>Primary Layout Ex.</title>
       </Head>
-      <main className={styles.main}>{children}</main>
+      {/* With react modules */}
+      {/* <main className={styles.main}>{children}</main> */}
+
+      {/* With Tailwind */}
+      <main className="flex overflow-scroll h-screen ">{children}</main>
     </>
   );
 };
