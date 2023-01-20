@@ -1,15 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './app/components/**/*.{js,ts,jsx,tsx}',
-    './app/layouts/**/*.{js,ts,jsx,tsx}',
+const defaultTheme = require('tailwindcss/defaultTheme');
 
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+module.exports = {
+  content: ['./app/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        grandstander: [
+          'var(--font-grandstander)',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        arabic: ['var(--font-arabic)', ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };
