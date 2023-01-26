@@ -6,6 +6,9 @@ import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
+
+  if (excludeRoutes(request.nextUrl.pathname)) return response;
+
   const supabase = createMiddlewareSupabaseClient<Database>({
     req: request,
     res: response,
@@ -17,9 +20,11 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getSession();
 
   // example re-route for auth
-  if (!session && !request.nextUrl.pathname.startsWith('/about')) {
-    return NextResponse.redirect(new URL('/about', request.url));
-  }
+  //   if (!session && !request.nextUrl.pathname.startsWith('/about')) {
+  //     return NextResponse.redirect(new URL('/about', request.url));
+  //   }
+
+  console.log(request.nextUrl.pathname);
 
   return response;
 }
@@ -35,7 +40,18 @@ export const config = {
      * - .jpeg (public images in assets)
      */
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
-    /* eslint-disable */
-    '/^/(.*)(.jpeg)$',
   ],
+};
+
+const excludeRoutes = (pathname: string) => {
+  //   const publicRoutes = /\.(.*)$/;
+  if (
+    pathname.includes('.') || // Ignore files.
+    pathname.startsWith('/api') // Ignore API calls.
+    // pathname.endsWith('/%3Cno%20source%3E') // Ignore "no source" calls.
+    // publicRoutes.test(pathname)
+  ) {
+    return true;
+  }
+  return false;
 };
