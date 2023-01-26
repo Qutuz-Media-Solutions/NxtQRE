@@ -1,5 +1,5 @@
-import CatCard from '@/components/cards/cat';
 import type { Meta, StoryObj } from '@storybook/react';
+import CatCard from 'components/cards/cat';
 import { mockCatCardProps } from './index.mock';
 
 const meta: Meta<typeof CatCard> = {
