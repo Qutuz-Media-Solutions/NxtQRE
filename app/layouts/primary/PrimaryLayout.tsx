@@ -1,4 +1,3 @@
-import Head from 'next/head';
 // import styles from './styles.module.sass';
 
 export interface IPrimaryLayout {
@@ -8,9 +7,6 @@ export interface IPrimaryLayout {
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   return (
     <>
-      <Head>
-        <title>Primary Layout Ex.</title>
-      </Head>
       {/* With react modules */}
       {/* <main className={styles.main}>{children}</main> */}
 
