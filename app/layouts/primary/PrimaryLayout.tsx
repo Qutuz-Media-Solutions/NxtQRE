@@ -11,7 +11,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
       {/* <main className={styles.main}>{children}</main> */}
 
       {/* With Tailwind */}
-      <main className="flex overflow-scroll h-screen font-grandstander">
+      <main className="flex overflow-scroll h-[94vh] font-grandstander">
         {children}
       </main>
     </>
