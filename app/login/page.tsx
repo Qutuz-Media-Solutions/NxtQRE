@@ -1,24 +1,39 @@
-import Image from 'next/image';
-import bgImage from '../../public/bridge-nyc.jpeg';
+import { EnvelopeIcon } from '@heroicons/react/24/outline';
 
 const Login: React.FC = () => {
   return (
-    <section className="h-full w-full grid grid-cols-2">
-      <div className="relative">
-        <Image
-          src={bgImage}
-          alt=""
-          fill={true}
-          style={{ objectFit: 'cover', opacity: '0.65' }}
-        />
+    <section className="relative flex h-full w-full flex-col items-center justify-center bg-gradient-to-b from-slate-100 to-slate-300 text-stone-800">
+      <div className="text-center">
+        <h1 className="text-2xl">Welcome to Fleet Admin</h1>
+        <p className="text-xl">Please sign in</p>
       </div>
-      <div className="bg-slate-400 text-center py-16">
-        <h1 className="text-4xl">Login</h1>
-        <form className="bg-zinc-300 w-2/3 m-auto h-5/6 rounded-md">
-          <input type="email" name="email" />
-          <input type="password" name="password" />
-          <button type="submit">Submit</button>
+      <div className="flex w-full flex-col items-center space-y-5 p-6">
+        <form className="flex w-full max-w-xs flex-col space-y-5">
+          <input
+            className="h-12 w-full rounded-lg bg-slate-100 pl-4"
+            type="email"
+            name="email"
+          />
+          <input
+            className="h-12 w-full rounded-lg bg-slate-100 pl-4"
+            type="password"
+            name="password"
+          />
+          <button
+            type="submit"
+            className="h-12 w-full items-center rounded-lg bg-rose-400 font-semibold text-white"
+          >
+            Sign In
+          </button>
         </form>
+        <div className="grid max-w-xs grid-cols-3 items-center text-center ">
+          <div className="h-[2px] rounded-l-full bg-gradient-to-r from-slate-300 to-rose-500" />
+          <p>Or continue with email link</p>
+          <div className="h-[2px] rounded-l-full bg-gradient-to-l from-slate-300 to-rose-500" />
+        </div>
+        <div>
+          <EnvelopeIcon />
+        </div>
       </div>
     </section>
   );
