@@ -1,6 +1,6 @@
 const About: React.FC = () => {
   return (
-    <section className="">
+    <section className="p-6 flex flex-col space-y-3">
       <h2>Layout Example (About)</h2>
       <p>
         This example adds a property <code>getLayout</code> to your page,
@@ -25,7 +25,7 @@ const About: React.FC = () => {
         <code>Sidebar</code> and then changing routes. You&apos;ll notice the
         input state is persisted.
       </p>
-      <p className="font-arabic">
+      <p className="font-arabic leading-6">
         مسؤول بالناتو: على الدول اتخاذ قرارها بمفردها بشأن إرسال دبابات
         لأوكرانيا قال الأدميرال روب باور رئيس اللجنة العسكرية لحلف شمال الأطلسي
         اليوم الجمعة إن ألمانيا والدول الأخرى التي تدعم أوكرانيا في جهودها لصد
