@@ -8,9 +8,9 @@
     "npm": "Please use yarn"
   },
   "scripts": {
-    "prepare": "bin/npm-scripts/prepare",
+    "prepare": "sh bin/npm-scripts/prepare",
     "cache:clean": "yarn cache clean -f",
-    "dev": "bin/npm-scripts/dev",
+    "dev": "sh bin/npm-scripts/dev",
     "dev-no-inspect": "next dev",
     "dev-inspect": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
