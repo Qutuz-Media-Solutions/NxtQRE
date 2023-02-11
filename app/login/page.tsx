@@ -9,7 +9,15 @@ const Login: React.FC = () => {
   const [isUser, setIsUser] = useState(true);
   const { supabase } = useSupabase();
 
-  const handleSignIn = async (e: BaseSyntheticEvent) => {
+  const copies = {
+    subtitle: isUser ? 'Please Sign In' : "Let's Get You Signed Up",
+    submitButton: isUser ? 'Sign In' : 'Sign Up',
+    switchUser: isUser
+      ? "Don't have an account? "
+      : 'Have an account, already? ',
+  };
+
+  const signIn = async (e: BaseSyntheticEvent) => {
     e.preventDefault();
     let res = await supabase.auth.signInWithPassword({
       email,
@@ -17,6 +25,22 @@ const Login: React.FC = () => {
     });
 
     console.log(res);
+  };
+
+  const signUp = async (e: BaseSyntheticEvent) => {
+    e.preventDefault();
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          is_admin: 'true',
+          full_name: 'Ahmad K',
+        },
+      },
+    });
+
+    console.log({ data, error });
   };
 
   return (
@@ -28,64 +52,56 @@ const Login: React.FC = () => {
             <span className="relative text-white ">Fleet Admin</span>
           </span>
         </h1>
-        <p className="text-xl">
-          {isUser && 'Please Sign In'}
-          {!isUser && "Let's Get You Signed Up"}
-        </p>
+        <p className="text-xl">{copies.subtitle}</p>
       </div>
       <div className="flex w-full flex-col items-center space-y-5 p-6">
         <form
           className="flex w-full max-w-xs flex-col space-y-3"
-          onSubmit={handleSignIn}
+          onSubmit={isUser ? signIn : signUp}
         >
-          <div>
-            <input
-              className="block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-rose-500 invalid:text-rose-600
+          <input
+            className="peer/email block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-rose-500 invalid:text-rose-600
               empty:border-slate-300 focus:border-sky-500 focus:outline-none
               focus:ring-1 focus:ring-sky-500 focus:invalid:border-rose-500 focus:invalid:ring-rose-500
               disabled:border-slate-200 disabled:bg-slate-50
               disabled:text-slate-500 disabled:shadow-none"
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              onInput={({ target: { value } }: BaseSyntheticEvent) =>
-                setEmail(value)
-              }
-              placeholder="hello@example.com"
-            />
-            <label htmlFor="email" className="sr-only">
-              Email
-            </label>
-          </div>
+            type="email"
+            name="email"
+            id="email"
+            value={email}
+            required
+            onInput={({ target: { value } }: BaseSyntheticEvent) =>
+              setEmail(value)
+            }
+            placeholder="hello@example.com"
+          />
+          <label htmlFor="email" className="sr-only">
+            Email
+          </label>
 
-          <div>
-            <input
-              className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-rose-500 invalid:text-rose-600
+          <input
+            className="peer/password mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm placeholder-slate-400 shadow-sm invalid:border-rose-500 invalid:text-rose-600
               empty:border-slate-300 focus:border-sky-500 focus:outline-none
               focus:ring-1 focus:ring-sky-500 focus:invalid:border-rose-500 focus:invalid:ring-rose-500
               disabled:border-slate-200 disabled:bg-slate-50
               disabled:text-slate-500 disabled:shadow-none"
-              type="password"
-              name="password"
-              id="password"
-              required
-              minLength={3}
-              value={password}
-              onInput={(e: BaseSyntheticEvent) => setPassword(e.target.value)}
-            />
-            <label htmlFor="password" className="sr-only">
-              Password
-            </label>
-            <p className="invisible mt-1 font-light text-rose-600 peer-invalid/password:visible">
-              Please enter a password
-            </p>
-          </div>
+            type="password"
+            name="password"
+            id="password"
+            required
+            minLength={3}
+            value={password}
+            onInput={(e: BaseSyntheticEvent) => setPassword(e.target.value)}
+          />
+          <label htmlFor="password" className="sr-only">
+            Password
+          </label>
+
           <button
             type="submit"
-            className="h-12 w-full items-center rounded-lg bg-rose-400 font-semibold text-white"
+            className="h-12 w-full items-center rounded-lg bg-rose-400 font-semibold text-white peer-invalid/password:bg-rose-400/50 peer-invalid/email:bg-rose-400/50"
           >
-            Sign In
+            {copies.submitButton}
           </button>
         </form>
         <div className="grid max-w-xs grid-cols-3 items-center text-center ">
@@ -102,6 +118,17 @@ const Login: React.FC = () => {
             <EnvelopeIcon className="h-full font-semibold text-white" />
           </button>
         </div>
+        <p>
+          {copies.switchUser}
+          <span
+            className="text-blue-400 underline"
+            onClick={() => {
+              setIsUser(!isUser);
+            }}
+          >
+            Click Here
+          </span>
+        </p>
       </div>
     </section>
   );
