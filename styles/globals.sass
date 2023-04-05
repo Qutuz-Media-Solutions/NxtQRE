@@ -140,6 +140,14 @@ a
 *
   box-sizing: border-box
 
+input, button, textarea, select
+  font-family: inherit
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus
+  transition: background-color 600000s 0s, color 600000s 0s
+  font-family: inherit
+
 /* //                   
 //     END CSS RESET  
 //                    */
@@ -164,8 +172,10 @@ body
 
   body
     color: white
-    color: theme('textColor.rose.300')
+    color: theme('textColor.black')
 
+  main
+    color: theme('textColor.white')
     background: black
 
 @media (prefers-color-scheme: light)
