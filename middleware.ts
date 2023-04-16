@@ -1,7 +1,5 @@
-import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 
-import type { Database } from 'lib/supabase/types/database.types';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
@@ -9,16 +7,7 @@ export async function middleware(request: NextRequest) {
 
   if (excludeRoutes(request.nextUrl.pathname)) return response;
 
-  const supabase = createMiddlewareSupabaseClient<Database>({
-    req: request,
-    res: response,
-  });
-
   // Use session to re-route from protected routes
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
-
   // example re-route for auth
   //   if (!session && !request.nextUrl.pathname.startsWith('/about')) {
   //     return NextResponse.redirect(new URL('/about', request.url));
