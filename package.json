@@ -25,6 +25,7 @@
     "@heroicons/react": "^2.0.15",
     "class-variance-authority": "^0.5.2",
     "encoding": "^0.1.13",
+    "jotai": "^2.0.4",
     "next": "^13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
