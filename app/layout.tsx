@@ -6,10 +6,9 @@ import 'styles/globals.sass';
 import Navbar from './layouts/navbar';
 
 export const metadata: Metadata = {
-  applicationName: 'Next.js',
-  description:
-    'Phoenix Technical Industries is an international distributor of Medical Equipment and Supplies',
-  title: 'Phoenix TI',
+  applicationName: 'Fleet Booking Luxury',
+  description: 'A tranportation company providing luxury services',
+  title: 'Fleet Transportation',
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript'],
   authors: [{ name: 'Ahmad K' }, { name: 'Omar Q' }],
