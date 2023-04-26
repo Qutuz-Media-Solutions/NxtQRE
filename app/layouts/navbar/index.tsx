@@ -11,7 +11,6 @@ function Navbar() {
         <li>
           <Link href="/about">About</Link>
         </li>
-        <Login />
       </ul>
     </nav>
   );

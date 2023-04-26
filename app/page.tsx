@@ -1,18 +1,36 @@
 'use client';
 import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import Login from '~/components/login';
-import { counter, dataAtom } from './utils/store';
+import { counter } from './utils/store';
 
 const Home: React.FC = () => {
-  const [data, setData] = useAtom(dataAtom);
-  const [count] = useAtom(counter);
+  const [clock, setClock] = useAtom(counter);
+
+  const pad = (n: number) => (n < 10 ? `0${n}` : n);
+  const format = (t: Date) =>
+    `${pad(t.getUTCHours())}:${pad(t.getUTCMinutes())}:${pad(
+      t.getUTCSeconds(),
+    )}`;
+
+  const timeString = format(new Date(clock));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setClock(Date.now());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [setClock]);
 
   return (
-    <main>
-      This is the {data.name}
-      <h1 className="text-4xl text-red-300">The count is: {count}</h1>
+    <div className="m-auto h-full text-center">
+      <h1 className="text-4xl text-emerald-500">
+        The time is: <span>{timeString}</span>
+      </h1>
       <Login />
-    </main>
+    </div>
   );
 };
 

@@ -1,33 +1,7 @@
-'use client';
-import { counter } from '@/utils/store';
-import { useAtom } from 'jotai';
-import { useEffect } from 'react';
-
 const About: React.FC = () => {
-  const [clock, setClock] = useAtom(counter);
-
-  const pad = (n) => (n < 10 ? `0${n}` : n);
-  const format = (t) =>
-    `${pad(t.getUTCHours())}:${pad(t.getUTCMinutes())}:${pad(
-      t.getUTCSeconds(),
-    )}`;
-
-  const timeString = format(new Date(clock));
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setClock(Date.now());
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [setClock]);
   return (
     <section className="">
-      <h2>
-        Layout Example (About){' '}
-        <span className="m-10 text-4xl text-emerald-500">{timeString}</span>
-        {clock}
-      </h2>
+      <h2>Layout Example (About) </h2>
       <p>
         This example adds a property <code>getLayout</code> to your page,
         allowing you to return a React component for the layout. This allows you
