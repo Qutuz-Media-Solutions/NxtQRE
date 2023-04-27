@@ -8,7 +8,7 @@ function Login() {
 
   return usePathname() === '/login' ? null : (
     <div>
-      <button>{loading && <Spinner color="emerald" />}</button>
+      <button>{loading && <Spinner color="emerald" />}Login</button>
     </div>
   );
 }
