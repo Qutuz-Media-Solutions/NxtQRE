@@ -1,9 +1,9 @@
+import Navbar from '@/layouts/navbar';
 import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
 import { arabic, grandstander } from '@/meta/fonts';
 import { Metadata } from 'next';
 import 'server-only';
 import 'styles/globals.sass';
-import Navbar from './layouts/navbar';
 
 export const metadata: Metadata = {
   applicationName: 'Fleet Booking Luxury',

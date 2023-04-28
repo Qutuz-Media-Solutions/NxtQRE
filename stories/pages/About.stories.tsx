@@ -1,14 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react';
+// import type { Meta, StoryObj } from '@storybook/react';
 
-import About from '@/about/page';
+// import About from '@/about/page';
 
-const meta: Meta<typeof About> = {
-  title: 'Pages/About',
-  component: About,
-};
+// const meta: Meta<typeof About> = {
+//   title: 'Pages/About',
+//   component: About,
+// };
 
-export default meta;
+// export default meta;
 
-type Story = StoryObj<typeof About>;
+// type Story = StoryObj<typeof About>;
 
-export const AboutPage: Story = {};
+// export const AboutPage: Story = {};
+// eslint-disable-next-line storybook/story-exports
+export default {};
