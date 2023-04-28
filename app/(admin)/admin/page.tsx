@@ -1,8 +1,8 @@
 'use client';
+import { counter } from '@/utils/store';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import Login from '~/components/login';
-import { counter } from './utils/store';
 
 const Home: React.FC = () => {
   const [clock, setClock] = useAtom(counter);
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="m-auto h-full text-center">
-      <h1 className="text-4xl text-emerald-500">
+      <h1 className="text-4xl text-red-500">
         The time is: <span>{timeString}</span>
       </h1>
       <Login />
