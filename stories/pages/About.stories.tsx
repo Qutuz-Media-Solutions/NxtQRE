@@ -12,4 +12,5 @@
 // type Story = StoryObj<typeof About>;
 
 // export const AboutPage: Story = {};
-/* eslint-disable  */
+// eslint-disable-next-line storybook/story-exports
+export default {};
