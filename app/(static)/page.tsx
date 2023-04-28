@@ -2,6 +2,7 @@
 // import Login from '~/components/login';
 // import TimeCounter from '~/components/time-counter';
 
+import Footer from '~/components/footer';
 import Landing from '~/components/landing';
 
 // Example Data Fetching in Next
@@ -21,8 +22,9 @@ const Home = async () => {
   // const fact: any = await getCatFact();
 
   return (
-    <div className="m-auto h-full text-center ">
+    <div>
       <Landing />
+      <Footer />
     </div>
   );
 };
