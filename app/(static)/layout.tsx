@@ -1,9 +1,9 @@
-import Navbar from '@/layouts/navbar';
 import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
 import { arabic, grandstander } from '@/meta/fonts';
 import { Metadata } from 'next';
 import 'server-only';
 import 'styles/globals.sass';
+import Navbar from '~/components/navbar/static';
 
 export const metadata: Metadata = {
   applicationName: 'Medhal Members',
@@ -27,7 +27,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" className={`${grandstander.variable} ${arabic.variable}`}>
-      <body>
+      <body className="flex font-grandstander">
         <Navbar />
         <PrimaryLayout>{children}</PrimaryLayout>
       </body>
