@@ -38,6 +38,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('daisyui'),
     plugin(({ addUtilities, matchUtilities, theme }) => {
       /** https://github.com/tailwindlabs/tailwindcss/discussions/3378#discussioncomment-4177286 */
       // https://github.com/jamiebuilds/tailwindcss-animate
