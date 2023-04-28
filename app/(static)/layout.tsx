@@ -6,9 +6,9 @@ import 'server-only';
 import 'styles/globals.sass';
 
 export const metadata: Metadata = {
-  applicationName: 'Fleet Booking Luxury',
-  description: 'A tranportation company providing luxury services',
-  title: 'Fleet Transportation',
+  applicationName: 'Medhal Members',
+  description: 'Medhal Members application and user management application',
+  title: 'Medhal Members',
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript'],
   authors: [{ name: 'Ahmad K' }, { name: 'Omar Q' }],
