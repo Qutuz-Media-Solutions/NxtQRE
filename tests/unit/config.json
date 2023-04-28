@@ -1,0 +1,28 @@
+{
+  "collectCoverageFrom": [
+    "**/(app|pages|components)/**/*.(ts|tsx|js|jsx)",
+    "!**/app/build/**",
+    "!**/**/(styles.js|style.js|props.js|prop-types.js|constants.ts)",
+    "!**/**/*.(test.js|e2e.js|test.tsx)",
+    "!**/(node_modules|tests|fragments|e2e|hooks)/**",
+    "!.next/**"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 35,
+      "branches": 30,
+      "functions": 31,
+      "lines": 35
+    }
+  },
+  "jestModuleMappers": {
+    "^.+\\.css$": "<rootDir>/tests/utils/css-mock.js",
+    "^.+\\.svg$": "<rootDir>/tests/utils/svg-mock.js",
+    "^app/(.*)$": "<rootDir>/app/$1",
+    "^server/(.*)$": "<rootDir>/server/$1",
+    "^tests/(.*)$": "<rootDir>/tests/$1",
+    "^@theme-system(.*)$": "<rootDir>/app/styles/@theme-system$1",
+    "^react-adaptive-hooks/(.*)$": "react-adaptive-hooks/dist/index.umd.js",
+    "^storybook/(.*)$": "<rootDir>/stories/$1"
+  }
+}
