@@ -1,5 +1,6 @@
 import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
 import { arabic, grandstander } from '@/meta/fonts';
+import { useSetAtom } from 'jotai';
 import { Metadata } from 'next';
 import 'server-only';
 import 'styles/globals.sass';
@@ -22,11 +23,13 @@ export const metadata: Metadata = {
 //  TODO: Remove 3arabi font import here, only use when needed
 export default async function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
   return (
-    <html lang="en" className={`${grandstander.variable} ${arabic.variable}`}>
+    <html lang={lang} className={`${grandstander.variable} ${arabic.variable}`}>
       <body className="flex font-grandstander">
         <Navbar />
         <PrimaryLayout>{children}</PrimaryLayout>

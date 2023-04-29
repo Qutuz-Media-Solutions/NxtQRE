@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import Drawer from '~/components/drawer';
+import NavLink from '~/components/links/nav-link';
 import Login from '~/components/login';
 import Logo from '~/components/logo';
 
-type NavLink = {
+type NavLinkInfo = {
   title: string;
   url: string;
 };
 
-const navLinks: NavLink[] = [
+const navLinks: NavLinkInfo[] = [
   { title: 'About Us', url: '#about-us' },
   { title: 'Services', url: '#services' },
   { title: 'Coaches', url: '#coaches' },
@@ -16,31 +17,24 @@ const navLinks: NavLink[] = [
   { title: 'Testimonials', url: '#testimonials' },
   { title: 'Contact Us', url: '#contact-us' },
 ];
+
 function Navbar() {
   return (
-    <header className='fixed z-20 h-[6vh] min-h-[120px] w-full bg-opacity-0 py-5 text-white'>
+    <header className="fixed z-20 h-[6vh] min-h-[120px] w-full bg-opacity-0 py-5 text-white">
       <nav>
-        <div className='container flex justify-between'>
+        <div className="container flex justify-between">
           {/* Logo */}
           <div className="h-[80px] w-[80px] rounded-full bg-white">
-            <Link href='/'>
+            <Link href="/">
               <Logo />
             </Link>
           </div>
 
-          {/* Menu Items */}
-          <ul className="space-x-6 text-lg items-center hidden lg:flex">
+          {/* Desktop Menu Items */}
+          <ul className="hidden items-center space-x-6 text-lg lg:flex">
             {navLinks.map(({ title, url }) => (
-              <li key={url} className="">
-                <Link href={url}>
-                  <span
-                    className="relative transition-all duration-500 hover:text-medhal-light hover:after:absolute hover:after:bottom-0 hover:after:left-0
-            hover:after:h-[2px] hover:after:w-full hover:after:origin-bottom-right hover:after:scale-x-0
-            hover:after:animate-animateunderline hover:after:bg-medhal-light hover:after:animation-duration-500 hover:after:fill-mode-forwards"
-                  >
-                    {title}
-                  </span>
-                </Link>
+              <li key={url}>
+                <NavLink url={url}>{title}</NavLink>
               </li>
             ))}
             <li>
@@ -55,4 +49,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

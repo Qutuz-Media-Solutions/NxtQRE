@@ -3,7 +3,7 @@ import React from 'react';
 function Video() {
   return (
     <video
-      className="absolute min-h-full w-auto min-w-full object-cover rotate-y-180 top-0 left-0"
+      className="absolute min-h-full w-auto min-w-full object-cover rotate-y-180"
       autoPlay
       loop
       muted
