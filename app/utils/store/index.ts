@@ -7,3 +7,4 @@ export const dataAtom = atom({
 });
 
 export const counter = atom(0);
+export const langAtom = atom('');

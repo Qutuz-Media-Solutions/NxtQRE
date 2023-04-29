@@ -6,7 +6,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   return (
     <>
       {/* With Tailwind */}
-      <main className="flex font-grandstander">{children}</main>
+      <main className="w-full">{children}</main>
     </>
   );
 };
