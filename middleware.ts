@@ -21,6 +21,12 @@ function getLocale(request: NextRequest): string | undefined {
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
+  if (
+    request.nextUrl.pathname.startsWith('/_next') &&
+    request.headers.get('accept')?.includes('image')
+  ) {
+    return;
+  }
 
   // Check if there is a supported locale in pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -38,12 +44,6 @@ export async function middleware(request: NextRequest) {
     // The new URL is now /en-US/products
     return NextResponse.redirect(new URL(`/${locale}/${pathname}`, url));
   }
-
-  if (
-    request.nextUrl.pathname.startsWith('/_next') ||
-    request.headers.get('accept')?.includes('image')
-  )
-    return;
 
   if (excludeRoutes(request.nextUrl.pathname)) return response;
 
