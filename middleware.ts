@@ -21,12 +21,17 @@ function getLocale(request: NextRequest): string | undefined {
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
-  if (
-    request.nextUrl.pathname.startsWith('/_next') ||
-    request.headers.get('accept')?.includes('image')
-  ) {
-    return;
-  }
+  // if (
+  //   request.nextUrl.pathname.includes('/_next') ||
+  //   request.headers.get('accept')?.includes('image')
+  // ) {
+  //   console.log(request.nextUrl.pathname.startsWith('/_next'));
+  //   console.log(request.headers.get('accept')?.includes('image'));
+  //   console.log(request.headers);
+  //   return response;
+  // }
+
+  if (excludeRoutes(request.nextUrl.pathname)) return response;
 
   // Check if there is a supported locale in pathname
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -44,8 +49,6 @@ export async function middleware(request: NextRequest) {
     // The new URL is now /en-US/products
     return NextResponse.redirect(new URL(`/${locale}/${pathname}`, url));
   }
-
-  if (excludeRoutes(request.nextUrl.pathname)) return response;
 
   // Use session to re-route from protected routes
   // example re-route for auth
@@ -75,7 +78,8 @@ const excludeRoutes = (pathname: string) => {
   //   const publicRoutes = /\.(.*)$/;
   if (
     pathname.includes('.') || // Ignore files.
-    pathname.startsWith('/api') // Ignore API calls.
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/_next') // Ignore API calls.
     // pathname.endsWith('/%3Cno%20source%3E') // Ignore "no source" calls.
     // publicRoutes.test(pathname)
   ) {
