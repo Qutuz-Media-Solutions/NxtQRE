@@ -17,7 +17,7 @@ import Landing from '~/components/landing';
 //   return fact.json();
 // });
 
-const Home = ({ lang }) => {
+const Home = () => {
   // const fact: any = await getCatFact();
 
   return (
