@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   return [{ lang: 'ar' }, { lang: 'en' }];
 }
 
-const Home = async ({ params: { lang } }) => {
+const Home = async ({ params: { lang } }: any) => {
   const { about, contact, coaches } = await import(
     `@/meta/translations/${lang}/nav.json`
   );

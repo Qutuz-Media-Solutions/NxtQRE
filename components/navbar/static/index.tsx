@@ -9,7 +9,7 @@ type NavLinkInfo = {
   url: string;
 };
 
-async function Navbar({ lang }) {
+async function Navbar({ lang }: any) {
   const { about, contact, coaches } = await import(
     `@/meta/translations/${lang}/nav.json`
   );
