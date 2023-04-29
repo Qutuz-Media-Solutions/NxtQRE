@@ -2,7 +2,7 @@ import Video from '../video';
 
 function Landing() {
   return (
-    <section className="relative h-screen w-screen">
+    <section className="relative h-screen">
       <div className="absolute z-10 min-h-screen min-w-full bg-gradient-to-b from-[#000000a6] via-[#000000a6] to-[#00000000]" />
       <Video />
       <div className="relative z-10 pt-[25vh]">
