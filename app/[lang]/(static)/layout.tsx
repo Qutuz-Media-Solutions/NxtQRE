@@ -1,6 +1,5 @@
 import PrimaryLayout from '@/layouts/primary/PrimaryLayout';
 import { arabic, grandstander } from '@/meta/fonts';
-import { useSetAtom } from 'jotai';
 import { Metadata } from 'next';
 import 'server-only';
 import 'styles/globals.sass';
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
   publisher: 'Qutuz Media',
 };
 
-//  TODO: Remove 3arabi font import here, only use when needed
 export default async function RootLayout({
   children,
   params: { lang },
@@ -28,10 +26,17 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: any;
 }) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
   return (
-    <html lang={lang} className={`${grandstander.variable} ${arabic.variable}`}>
+    <html
+      lang={lang}
+      dir={dir}
+      className={`${grandstander.variable} ${arabic.variable}`}
+    >
       <body className="flex font-grandstander">
-        <Navbar />
+        {/* @ts-expect-error Server Component */}
+        <Navbar lang={lang} />
         <PrimaryLayout>{children}</PrimaryLayout>
       </body>
     </html>
