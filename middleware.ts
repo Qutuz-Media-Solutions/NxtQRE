@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
   let response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
   if (
-    request.nextUrl.pathname.startsWith('/_next') &&
+    request.nextUrl.pathname.startsWith('/_next') ||
     request.headers.get('accept')?.includes('image')
   ) {
     return;
