@@ -9,16 +9,20 @@ type NavLinkInfo = {
   url: string;
 };
 
-const navLinks: NavLinkInfo[] = [
-  { title: 'About Us', url: '#about-us' },
-  { title: 'Services', url: '#services' },
-  { title: 'Coaches', url: '#coaches' },
-  { title: 'Memberships', url: '#memberships' },
-  { title: 'Testimonials', url: '#testimonials' },
-  { title: 'Contact Us', url: '#contact-us' },
-];
+async function Navbar({ lang }: any) {
+  const { about, contact, coaches } = await import(
+    `@/meta/translations/${lang}/nav.json`
+  );
 
-function Navbar() {
+  const navLinks: NavLinkInfo[] = [
+    { title: about, url: '#about-us' },
+    { title: 'Services', url: '#services' },
+    { title: coaches, url: '#coaches' },
+    { title: 'Memberships', url: '#memberships' },
+    { title: 'Testimonials', url: '#testimonials' },
+    { title: contact, url: '#contact-us' },
+  ];
+
   return (
     <header className="fixed z-20 h-[6vh] min-h-[120px] w-full bg-opacity-0 py-5 text-white">
       <nav>

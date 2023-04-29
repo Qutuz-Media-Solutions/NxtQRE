@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Medhal Members',
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript'],
-  authors: [{ name: 'Ahmad K' }, { name: 'Omar Q' }, { name: 'Bahaa N' }],
+  authors: [{ name: 'Ahmad K' }, { name: 'Omar Q' }],
   viewport: { width: 'device-width', initialScale: 1 },
   icons: ['/favicon.svg'],
   colorScheme: 'dark',
@@ -19,16 +19,24 @@ export const metadata: Metadata = {
   publisher: 'Qutuz Media',
 };
 
-//  TODO: Remove 3arabi font import here, only use when needed
 export default async function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: any;
 }) {
+  const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
   return (
-    <html lang="en" className={`${grandstander.variable} ${arabic.variable}`}>
-      <body>
-        <Navbar />
+    <html
+      lang={lang}
+      dir={dir}
+      className={`${grandstander.variable} ${arabic.variable}`}
+    >
+      <body className="flex font-grandstander">
+        {/* @ts-expect-error Server Component */}
+        <Navbar lang={lang} />
         <PrimaryLayout>{children}</PrimaryLayout>
       </body>
     </html>

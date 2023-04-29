@@ -21,15 +21,6 @@ function getLocale(request: NextRequest): string | undefined {
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next();
   const pathname = request.nextUrl.pathname;
-  // if (
-  //   request.nextUrl.pathname.includes('/_next') ||
-  //   request.headers.get('accept')?.includes('image')
-  // ) {
-  //   console.log(request.nextUrl.pathname.startsWith('/_next'));
-  //   console.log(request.headers.get('accept')?.includes('image'));
-  //   console.log(request.headers);
-  //   return response;
-  // }
 
   if (excludeRoutes(request.nextUrl.pathname)) return response;
 
@@ -42,7 +33,6 @@ export async function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    console.log({ locale });
 
     let url = new URL(`/${locale}/${pathname}`, request.url);
     // e.g. incoming request is /products
