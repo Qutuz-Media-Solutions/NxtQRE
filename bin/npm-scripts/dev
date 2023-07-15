@@ -31,7 +31,7 @@ while [ $opt != '' ]
     else
       case $opt in
         1)  printf "\n${number} 🍜 Running ${bgred}\`cross-env NODE_OPTIONS='--inspect' next dev\`${normal}\n\n";
-            cross-env NODE_OPTIONS='--inspect' next dev;
+            cross-env NODE_OPTIONS='--inspect=4444' next dev;
             exit 0;
         ;;
         2)  printf "\n${number} 🍜 Running ${bgred}\`next-dev\`${normal}\n\n";

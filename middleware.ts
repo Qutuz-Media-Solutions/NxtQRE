@@ -27,17 +27,17 @@ export async function middleware(request: NextRequest) {
   // Check if there is a supported locale in pathname
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
+      !pathname.startsWith(`/${locale}`)
   );
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
-    let url = new URL(`/${locale}/${pathname}`, request.url);
+    let url = new URL(`/${locale}/${pathname}/`, request.url);
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
-    return NextResponse.redirect(new URL(`/${locale}/${pathname}`, url));
+    return NextResponse.redirect(new URL(`/${locale}/${pathname}/`, url));
   }
 
   // Use session to re-route from protected routes

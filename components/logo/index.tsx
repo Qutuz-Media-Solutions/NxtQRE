@@ -6,7 +6,7 @@ function Logo() {
       <Image
         src="https://images.unsplash.com/photo-1573082987491-217b12b67990"
         fill
-        objectFit="cover"
+        style={{ objectFit: 'cover' }}
         // sizes="(max-width: 768px) 100vw,
         //       (max-width: 1200px) 50vw,
         //       33vw"
