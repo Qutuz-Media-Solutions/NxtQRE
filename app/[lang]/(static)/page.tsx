@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
 const Home = async ({ params: { lang } }: any) => {
   const { about, contact } = await import(
-    `@/meta/translations/${lang}/nav.json`
+    `~/lib/translations/${lang}/nav.json`
   );
 
   return (

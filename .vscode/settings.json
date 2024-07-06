@@ -2,17 +2,15 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.sortImports": true
+    "source.fixAll": "explicit",
+    "source.sortImports": "explicit"
   },
   "[sass]": {
     "editor.defaultFormatter": "syler.sass-indented"
   },
   "[scss]": {
     "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": [
-      "document"
-    ],
+    "gitlens.codeLens.scopes": ["document"],
     "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
